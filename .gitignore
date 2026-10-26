@@ -1,0 +1,29 @@
+# Data files (MTS KION dataset is >100MB unpacked, excluded from Git)
+data/
+*.csv
+*.parquet
+*.zip
+*.tar.gz
+__MACOSX/
+
+# Model & feature artifacts
+*.pkl
+*.joblib
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+.pytest_cache/
+
+# IDE & OS
+.idea/
+.vscode/
+.cursorrules
+.DS_Store
+Thumbs.db

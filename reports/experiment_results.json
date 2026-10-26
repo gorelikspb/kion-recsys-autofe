@@ -1,0 +1,487 @@
+{
+  "dataset": {
+    "name": "MTS KION",
+    "sampled_users": 10000,
+    "sampled_interactions": 57578,
+    "total_items": 15963,
+    "train_pairs": 31920,
+    "val_pairs": 32910,
+    "test_pairs": 38610
+  },
+  "main_comparison": [
+    {
+      "Method": "1. TopPopular (14d Heuristic)",
+      "n_features": 1,
+      "feat_gen_sec": 0.15,
+      "train_sec": 0.0,
+      "Val_NDCG@10": 0.1754502746194551,
+      "Test_NDCG@10": 0.16888094211807927,
+      "Test_Recall@10": 0.25627445376862623,
+      "Test_MAP@10": 0.11405820541402553,
+      "Test_MRR@10": 0.19067352400685736,
+      "Test_ROC-AUC": 0.24224976206851828,
+      "Test_PR-AUC": 0.06594993575345326,
+      "Test_LogLoss": 0.7348048173183955
+    },
+    {
+      "Method": "2. Pure Learned Embeddings (SVD+Seq)",
+      "n_features": 36,
+      "feat_gen_sec": 0.73,
+      "train_sec": 1.32,
+      "Val_NDCG@10": 0.5846883943844914,
+      "Test_NDCG@10": 0.5882627098869457,
+      "Test_Recall@10": 0.6823008490257907,
+      "Test_MAP@10": 0.5057893689937341,
+      "Test_MRR@10": 0.6434349601016268,
+      "Test_ROC-AUC": 0.7854697645611497,
+      "Test_PR-AUC": 0.5117584171229312,
+      "Test_LogLoss": 0.2335296325433706
+    },
+    {
+      "Method": "3. Strong Manual Baseline (GBDT)",
+      "n_features": 33,
+      "feat_gen_sec": 0.87,
+      "train_sec": 0.68,
+      "Val_NDCG@10": 0.7724944468934348,
+      "Test_NDCG@10": 0.7329380712961053,
+      "Test_Recall@10": 0.8106259901714447,
+      "Test_MAP@10": 0.6660601779417916,
+      "Test_MRR@10": 0.7712673129339795,
+      "Test_ROC-AUC": 0.878091114957237,
+      "Test_PR-AUC": 0.7039310283338792,
+      "Test_LogLoss": 0.16677239793294385
+    },
+    {
+      "Method": "4. AutoFE Full SQL Space (Unfiltered)",
+      "n_features": 128,
+      "feat_gen_sec": 2.15,
+      "train_sec": 2.22,
+      "Val_NDCG@10": 0.7702896678850389,
+      "Test_NDCG@10": 0.7905225689817532,
+      "Test_Recall@10": 0.8663296666210419,
+      "Test_MAP@10": 0.7292945485339665,
+      "Test_MRR@10": 0.8192125775459107,
+      "Test_ROC-AUC": 0.9090421631541414,
+      "Test_PR-AUC": 0.77371055532364,
+      "Test_LogLoss": 0.14297465602331963
+    },
+    {
+      "Method": "5. AutoFE Selected (Top-55 SQL)",
+      "n_features": 55,
+      "feat_gen_sec": 2.15,
+      "train_sec": 0.54,
+      "Val_NDCG@10": 0.7456769799718738,
+      "Test_NDCG@10": 0.7829375499648669,
+      "Test_Recall@10": 0.8567352486932908,
+      "Test_MAP@10": 0.7204685786729438,
+      "Test_MRR@10": 0.8194478361145028,
+      "Test_ROC-AUC": 0.8959337856896388,
+      "Test_PR-AUC": 0.7635291692172419,
+      "Test_LogLoss": 0.16656960126807385
+    },
+    {
+      "Method": "6. Hybrid (AutoFE + Learned Emb)",
+      "n_features": 105,
+      "feat_gen_sec": 2.87,
+      "train_sec": 1.14,
+      "Val_NDCG@10": 0.7418832557192759,
+      "Test_NDCG@10": 0.7807131749435589,
+      "Test_Recall@10": 0.8646325982573069,
+      "Test_MAP@10": 0.715950892263723,
+      "Test_MRR@10": 0.8097239180572513,
+      "Test_ROC-AUC": 0.9015381468400223,
+      "Test_PR-AUC": 0.7620766595505206,
+      "Test_LogLoss": 0.15198652824421516
+    }
+  ],
+  "window_sensitivity": [
+    {
+      "window": "1 дней",
+      "window_days": 1,
+      "n_features": 12,
+      "Val_NDCG@10": 0.3909093472106929,
+      "Test_NDCG@10": 0.4234410610280652,
+      "Test_Recall@10": 0.6093581632043171,
+      "Test_ROC-AUC": 0.7292173517853923,
+      "train_sec": 0.2037454997189343
+    },
+    {
+      "window": "3 дней",
+      "window_days": 3,
+      "n_features": 16,
+      "Val_NDCG@10": 0.43118225598324217,
+      "Test_NDCG@10": 0.4887033378370747,
+      "Test_Recall@10": 0.7000227347546695,
+      "Test_ROC-AUC": 0.7887820429804687,
+      "train_sec": 0.24894060008227825
+    },
+    {
+      "window": "5 дней",
+      "window_days": 5,
+      "n_features": 16,
+      "Val_NDCG@10": 0.46690408372339326,
+      "Test_NDCG@10": 0.59388238063655,
+      "Test_Recall@10": 0.719066235499802,
+      "Test_ROC-AUC": 0.8199579970912179,
+      "train_sec": 0.3630236000753939
+    },
+    {
+      "window": "10 дней",
+      "window_days": 10,
+      "n_features": 17,
+      "Val_NDCG@10": 0.656232919087485,
+      "Test_NDCG@10": 0.6452925126485735,
+      "Test_Recall@10": 0.7760196507282754,
+      "Test_ROC-AUC": 0.8352708830811009,
+      "train_sec": 0.28832830023020506
+    },
+    {
+      "window": "14 дней",
+      "window_days": 14,
+      "n_features": 32,
+      "Val_NDCG@10": 0.6343395898683035,
+      "Test_NDCG@10": 0.6618654532713948,
+      "Test_Recall@10": 0.7882675232908334,
+      "Test_ROC-AUC": 0.8538889005339265,
+      "train_sec": 0.44596319971606135
+    },
+    {
+      "window": "21 дней",
+      "window_days": 21,
+      "n_features": 19,
+      "Val_NDCG@10": 0.7304383975808532,
+      "Test_NDCG@10": 0.7476487134543962,
+      "Test_Recall@10": 0.8174991114385054,
+      "Test_ROC-AUC": 0.8742383881192668,
+      "train_sec": 0.38713369984179735
+    },
+    {
+      "window": "45 дней",
+      "window_days": 45,
+      "n_features": 16,
+      "Val_NDCG@10": 0.6843550673931491,
+      "Test_NDCG@10": 0.6451428033340886,
+      "Test_Recall@10": 0.7177454053328179,
+      "Test_ROC-AUC": 0.8243704520240882,
+      "train_sec": 0.6723650000058115
+    },
+    {
+      "window": "60 дней",
+      "window_days": 60,
+      "n_features": 16,
+      "Val_NDCG@10": 0.7328975123818692,
+      "Test_NDCG@10": 0.6828538727953504,
+      "Test_Recall@10": 0.7699013108104017,
+      "Test_ROC-AUC": 0.8513666674499254,
+      "train_sec": 0.8550111996009946
+    },
+    {
+      "window": "90 дней",
+      "window_days": 90,
+      "n_features": 13,
+      "Val_NDCG@10": 0.6819199565752718,
+      "Test_NDCG@10": 0.6755357300012277,
+      "Test_Recall@10": 0.7391914224082056,
+      "Test_ROC-AUC": 0.8394145698979176,
+      "train_sec": 0.6823140000924468
+    },
+    {
+      "window": "Классика (7d + 30d)",
+      "window_days": 37,
+      "n_features": 27,
+      "Val_NDCG@10": 0.7547426520330847,
+      "Test_NDCG@10": 0.7158675297176792,
+      "Test_Recall@10": 0.7979945333092187,
+      "Test_ROC-AUC": 0.8614827148294146,
+      "train_sec": 1.4975211001001298
+    },
+    {
+      "window": "AutoFE Multi-Window + Momentum",
+      "window_days": 100,
+      "n_features": 49,
+      "Val_NDCG@10": 0.7784723698418248,
+      "Test_NDCG@10": 0.7816284313159484,
+      "Test_Recall@10": 0.8554902254785703,
+      "Test_ROC-AUC": 0.8960676336216326,
+      "train_sec": 1.1762749999761581
+    }
+  ],
+  "ablation_study": [
+    {
+      "stage": "1. Только User + Item (7d/30d/all)",
+      "n_features": 25,
+      "Val_NDCG@10": 0.7116551745082829,
+      "Test_NDCG@10": 0.684807881049081,
+      "Test_Recall@10": 0.7674341004760585,
+      "Test_MAP@10": 0.6128883276237773,
+      "Test_ROC-AUC": 0.8439383930190834,
+      "Test_LogLoss": 0.19011381706932412,
+      "train_sec": 0.6497516999952495
+    },
+    {
+      "stage": "2. + Прямые связи User-Item (Direct)",
+      "n_features": 28,
+      "Val_NDCG@10": 0.7395221563449597,
+      "Test_NDCG@10": 0.7029253097355977,
+      "Test_Recall@10": 0.7803548497604441,
+      "Test_MAP@10": 0.634044690612151,
+      "Test_ROC-AUC": 0.8578115365377108,
+      "Test_LogLoss": 0.1851181153552643,
+      "train_sec": 0.6579646002501249
+    },
+    {
+      "stage": "3. + Косвенные связи Жанр/Тип (Manual Baseline)",
+      "n_features": 33,
+      "Val_NDCG@10": 0.7724944468934348,
+      "Test_NDCG@10": 0.7329380712961053,
+      "Test_Recall@10": 0.8106259901714447,
+      "Test_MAP@10": 0.6660601779417916,
+      "Test_ROC-AUC": 0.878091114957237,
+      "Test_LogLoss": 0.16677239793294385,
+      "train_sec": 0.6508900001645088
+    },
+    {
+      "stage": "4. + AutoFE Нестандартные окна, Моментумы и Ранги внутри жанра",
+      "n_features": 58,
+      "Val_NDCG@10": 0.702782519913365,
+      "Test_NDCG@10": 0.7382002815914496,
+      "Test_Recall@10": 0.8366413134478401,
+      "Test_MAP@10": 0.6669328433911766,
+      "Test_ROC-AUC": 0.8879313682577206,
+      "Test_LogLoss": 0.1745517735677871,
+      "train_sec": 0.7034939001314342
+    },
+    {
+      "stage": "5. + AutoFE Многомерные косвенные связи (Страна, Декада, Втор. жанр)",
+      "n_features": 90,
+      "Val_NDCG@10": 0.7340796394442579,
+      "Test_NDCG@10": 0.7840192503860968,
+      "Test_Recall@10": 0.8671532257779344,
+      "Test_MAP@10": 0.7203155250344404,
+      "Test_ROC-AUC": 0.9052965613902609,
+      "Test_LogLoss": 0.14847160384007094,
+      "train_sec": 1.0925575997680426
+    },
+    {
+      "stage": "6. + AutoFE Обратные демографические связи (Item × User Cohort)",
+      "n_features": 100,
+      "Val_NDCG@10": 0.7676093282150498,
+      "Test_NDCG@10": 0.7941424273288344,
+      "Test_Recall@10": 0.8722000588550705,
+      "Test_MAP@10": 0.7321789051385613,
+      "Test_ROC-AUC": 0.9109393859328406,
+      "Test_LogLoss": 0.13738041285188837,
+      "train_sec": 1.1823639003559947
+    },
+    {
+      "stage": "7. + Обучаемые представления истории (Spectral & Sequence Embeddings)",
+      "n_features": 126,
+      "Val_NDCG@10": 0.7433384852283786,
+      "Test_NDCG@10": 0.7829836193706686,
+      "Test_Recall@10": 0.8728487648068067,
+      "Test_MAP@10": 0.7170360809580387,
+      "Test_ROC-AUC": 0.904984707098786,
+      "Test_LogLoss": 0.1522644310609187,
+      "train_sec": 1.3602454997599125
+    }
+  ],
+  "scalability": [
+    {
+      "n_users": 1000,
+      "n_events": 6173,
+      "n_train_pairs": 3480,
+      "manual_feat_sec": 0.51,
+      "autofe_feat_sec": 0.91,
+      "manual_train_sec": 0.46,
+      "autofe_train_sec": 0.61,
+      "peak_ram_mb": 79.3,
+      "total_pipeline_sec": 7.91,
+      "Manual_Test_NDCG@10": 0.7078659751763762,
+      "AutoFE_Test_NDCG@10": 0.7475685574630844,
+      "Manual_Test_ROC-AUC": 0.8691126567275902,
+      "AutoFE_Test_ROC-AUC": 0.8924446385128812
+    },
+    {
+      "n_users": 5000,
+      "n_events": 30187,
+      "n_train_pairs": 16920,
+      "manual_feat_sec": 1.46,
+      "autofe_feat_sec": 1.5,
+      "manual_train_sec": 0.62,
+      "autofe_train_sec": 2.25,
+      "peak_ram_mb": 120.2,
+      "total_pipeline_sec": 17.74,
+      "Manual_Test_NDCG@10": 0.7142215031965784,
+      "AutoFE_Test_NDCG@10": 0.77255093295628,
+      "Manual_Test_ROC-AUC": 0.8742722467173338,
+      "AutoFE_Test_ROC-AUC": 0.9061297522931693
+    },
+    {
+      "n_users": 10000,
+      "n_events": 57578,
+      "n_train_pairs": 31920,
+      "manual_feat_sec": 2.53,
+      "autofe_feat_sec": 2.24,
+      "manual_train_sec": 0.76,
+      "autofe_train_sec": 2.47,
+      "peak_ram_mb": 220.4,
+      "total_pipeline_sec": 22.9,
+      "Manual_Test_NDCG@10": 0.7377488981271678,
+      "AutoFE_Test_NDCG@10": 0.8013465376804535,
+      "Manual_Test_ROC-AUC": 0.8762829767159255,
+      "AutoFE_Test_ROC-AUC": 0.9144392458808666
+    }
+  ],
+  "top_25_features": [
+    {
+      "feature": "auto_i_genre_pop_share_14d",
+      "gain": 46126.50667667389,
+      "gain_pct": 41.957152689234945,
+      "split": 65
+    },
+    {
+      "feature": "auto_ug_share_all",
+      "gain": 15950.207232952118,
+      "gain_pct": 14.508475245890189,
+      "split": 94
+    },
+    {
+      "feature": "auto_i_ctype_pop_share_14d",
+      "gain": 11272.949506998062,
+      "gain_pct": 10.253992721333464,
+      "split": 54
+    },
+    {
+      "feature": "i_views_30d",
+      "gain": 6045.726814508438,
+      "gain_pct": 5.49925631376739,
+      "split": 34
+    },
+    {
+      "feature": "i_primary_genre",
+      "gain": 3345.03648519516,
+      "gain_pct": 3.042680156643404,
+      "split": 34
+    },
+    {
+      "feature": "auto_ug_days_since_last",
+      "gain": 3080.9429302215576,
+      "gain_pct": 2.8024578981502466,
+      "split": 19
+    },
+    {
+      "feature": "i_views_7d",
+      "gain": 2657.4993047714233,
+      "gain_pct": 2.4172891496727256,
+      "split": 43
+    },
+    {
+      "feature": "auto_i_views_2d",
+      "gain": 2384.2034215927124,
+      "gain_pct": 2.168696357241141,
+      "split": 38
+    },
+    {
+      "feature": "auto_i_momentum_21d_90d",
+      "gain": 2219.060002684593,
+      "gain_pct": 2.018480176958531,
+      "split": 54
+    },
+    {
+      "feature": "auto_i_days_since_last_watch",
+      "gain": 1032.7168900966644,
+      "gain_pct": 0.9393700794699344,
+      "split": 12
+    },
+    {
+      "feature": "ui_prior_views_all",
+      "gain": 817.5513353347778,
+      "gain_pct": 0.7436532414728847,
+      "split": 28
+    },
+    {
+      "feature": "i_views_all",
+      "gain": 773.2378017902374,
+      "gain_pct": 0.7033451880978381,
+      "split": 17
+    },
+    {
+      "feature": "emb_i_svd_2",
+      "gain": 682.3939259052277,
+      "gain_pct": 0.6207126488919857,
+      "split": 17
+    },
+    {
+      "feature": "auto_i_genre_pct_rank_14d",
+      "gain": 650.6748094558716,
+      "gain_pct": 0.5918606089713849,
+      "split": 25
+    },
+    {
+      "feature": "auto_ui_release_year_diff",
+      "gain": 615.7401752471924,
+      "gain_pct": 0.5600837004812096,
+      "split": 33
+    },
+    {
+      "feature": "auto_ug_share_60d",
+      "gain": 604.7716437578201,
+      "gain_pct": 0.5501066095711581,
+      "split": 16
+    },
+    {
+      "feature": "auto_i_genre_pop_share_3d",
+      "gain": 583.1298446655273,
+      "gain_pct": 0.5304210028689219,
+      "split": 19
+    },
+    {
+      "feature": "auto_ug_views_all",
+      "gain": 567.8811526298523,
+      "gain_pct": 0.5165506331802613,
+      "split": 6
+    },
+    {
+      "feature": "u_views_all",
+      "gain": 493.8932941183448,
+      "gain_pct": 0.44925050359367197,
+      "split": 16
+    },
+    {
+      "feature": "auto_idemo_sex_views_14d",
+      "gain": 460.8299970626831,
+      "gain_pct": 0.4191757829412308,
+      "split": 17
+    },
+    {
+      "feature": "auto_uc_share_all",
+      "gain": 439.5170907974243,
+      "gain_pct": 0.399789340592779,
+      "split": 31
+    },
+    {
+      "feature": "auto_idemo_age_views_14d",
+      "gain": 389.66247367858887,
+      "gain_pct": 0.3544410596709089,
+      "split": 17
+    },
+    {
+      "feature": "auto_i_views_1d",
+      "gain": 369.5783009529114,
+      "gain_pct": 0.3361722861954972,
+      "split": 5
+    },
+    {
+      "feature": "auto_i_momentum_10d_45d",
+      "gain": 326.9781789779663,
+      "gain_pct": 0.29742276989651684,
+      "split": 14
+    },
+    {
+      "feature": "auto_i_bounce_rate_14d",
+      "gain": 311.0218949317932,
+      "gain_pct": 0.28290876711779256,
+      "split": 14
+    }
+  ]
+}
